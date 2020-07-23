@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script src="/webjars/jquery/jquery.min.js"></script>
+</head>
+<body>
+	Formulario de creacion/modificacion
+		<form th:object="${alumno}" th:action="@{/alumno/guardar}" method="post">
+			<input type="hidden" th:field="*{id}" />
+			<div class="form-group">
+				<label for="exampleCI">CI:</label> 
+				<input class="form-control" id="exampleCI"
+					placeholder="Ingrese CI" th:field="*{ci}" /> 
+			</div>
+			<div class="form-group">
+				<label for="exampleNombre">Nombre:</label> 
+				<input class="form-control" id="exampleNombre"
+					placeholder="Ingrese nombre" th:field="*{nombre}" /> 
+			</div>
+			<div class="form-group">
+				<label for="exampleApellido">Curso:</label> 
+				<input class="form-control" id="exampleApellido"
+					placeholder="Ingrese curso"  th:field="*{curso}" /> 
+			</div>
+			<button type="submit" class="btn btn-primary">Guardar</button>
+			<button type="submit" class="btn btn-primary" name="Cancelar">Cancelar</button>
+		</form>
+</body>
+</html>
