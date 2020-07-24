@@ -57,37 +57,11 @@
 
 <main role="main" class="container">
 
-	<table class="table">
-		<thead class="thead-dark">
-			<tr>
-				<th scope="col">CI</th>
-				<th scope="col">Nombre</th>
-				<th scope="col">Curso</th>
-				<th scope="col">Editar</th>
-				<th scope="col">Eliminar</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="alumno: ${alumnos}">
-				<td th:text="${alumno.ci}"></td>
-				<td th:text="${alumno.nombre}"></td>
-				<td th:text="${alumno.curso}"></td>
-				<td>
-					<form th:action="@{|/alumno/editar/${alumno.id}|}">
-						<input type="submit" value="Editar">
-					</form>
-				</td>
-				<td>
-					<form th:action="@{/alumno/borrar}" method="post"
-						onsubmit="return confirm('¿Está seguro de eliminar al alumno?');">
-						<input type="hidden" th:value="${alumno.id}" name="id"> <input
-							type="submit" value="Borrar">
-					</form>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	
+  <div class="starter-template">
+    <h1>Curso de Spring</h1>
+    <p class="lead">Alumno: Marcelo Ruben Chambi Paredes</p>
+    <p class="lead">07-2020</p>
+  </div>
 
 </main><!-- /.container -->
 <!-- JS, Popper.js, and jQuery -->

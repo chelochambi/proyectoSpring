@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+                               xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Curso - Spring</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+    body {
+	  padding-top: 5rem;
+	}
+	.starter-template {
+	  padding: 3rem 1.5rem;
+	  text-align: center;
+	}
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+</div>
+<div class="col-sm">
+	<form th:action="@{/login}" method="post">
+		<h2 class="text-center">Proyecto Spring</h2>
+		<div class="form-group">
+			<label for="user">Usuario</label> 
+			<input type="text" class="form-control" id="user" name="user"> 
+			<small id="emailHelp" class="form-text text-muted">Ingresar usuario</small>
+		</div>
+		<div class="form-group">
+			<label for="pass">Contraseña</label> 
+			<input type="password" class="form-control" id="pass" name="pass">
+			<small id="emailHelp" class="form-text text-muted">Ingresar contraseña</small>
+		</div>
+		<input type="submit" value="Ingresar" class="btn btn-primary" />
+		<div th:if="${param.error}" class="alert alert-danger" role="alert">Error: Credenciales incorrectas</div>
+      	<div th:if="${param.logout}" class="alert alert-info" role="alert">Sistema cerrado. Gracias.</div>
+	</form>
+	</div>
+	<div class="col-sm"></div>
+</body>
+</html>

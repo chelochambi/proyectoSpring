@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import bo.com.cognos.proyecto.entidades.Alumno;
 import bo.com.cognos.proyecto.service.AlumnoService;
@@ -55,8 +57,13 @@ public class AlumnoController {
 				alumnoService.agregar(alumno);
 			}
 		}
-		//model.addAttribute("personas", PersonaService.getInstance().listar());
-		//model.addAttribute("alumno", alumnoService.listar());
+		return "redirect:/alumno/";
+	}
+	
+	@RequestMapping(value = "/borrar", method = RequestMethod.POST)
+	public String borrarAlumno(Model model, @RequestParam("id")Integer id) {
+		alumnoService.eliminar(id);
+		model.addAttribute("alumno", alumnoService.listar());
 		return "redirect:/alumno/";
 	}
 }

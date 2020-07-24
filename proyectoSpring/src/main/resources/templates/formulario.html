@@ -1,11 +1,62 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-<script src="/webjars/jquery/jquery.min.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <title>Curso - Spring</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <style>
+    body {
+	  padding-top: 5rem;
+	}
+	.starter-template {
+	  padding: 3rem 1.5rem;
+	  text-align: center;
+	}
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#"><span sec:authentication="name">usuario</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/alumno/}">Alumnos</a>
+      </li>
+      <li class="nav-item">
+        <a th:href="@{/alumno/agregar}" th:text="Agregar" class="nav-link"></a>
+      </li>
+    </ul>
+  	<a class="btn btn-outline-danger my-2 my-sm-0" th:href="@{/logout}" th:text="Salir"></a>
+  </div>
+</nav>
+
+<main role="main" class="container">
+
 	Formulario de creacion/modificacion
 		<form th:object="${alumno}" th:action="@{/alumno/guardar}" method="post">
 			<input type="hidden" th:field="*{id}" />
@@ -27,5 +78,12 @@
 			<button type="submit" class="btn btn-primary">Guardar</button>
 			<button type="submit" class="btn btn-primary" name="Cancelar">Cancelar</button>
 		</form>
+	
+
+</main><!-- /.container -->
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>

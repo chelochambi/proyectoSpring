@@ -6,6 +6,4 @@ import bo.com.cognos.proyecto.entidades.Alumno;
 
 public interface AlumnoRepository extends JpaRepository<Alumno, Integer>{
 
-	
-	
 }
