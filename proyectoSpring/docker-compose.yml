@@ -1,0 +1,20 @@
+version: "3"
+services:
+  mysqldb:
+    image: mysql:8
+    networks:
+      - db-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=Abc.1234
+      - MYSQL_DATABASE=colegio
+  app:
+    restart: on-failure
+    image: proyectospring
+    ports:
+      - "8090:8080"
+    networks:
+      - db-mysql
+    depends_on:
+      - mysqldb
+networks:
+  db-mysql: 
